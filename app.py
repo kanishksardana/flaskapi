@@ -8,7 +8,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 
-
+import os
 from security import authenticate,identity
 from resources.user import  UserRegister
 from resources.item import Item,Items
@@ -17,7 +17,7 @@ from resources.store import Store,StoreList
 app=Flask(__name__)  # app will use the flask
 
 
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'  # you can use any database with sqlalchemy, i.e. oracle,etc
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL','sqlite:///data.db')  # you can use any database with sqlalchemy, i.e. oracle,etc
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False # its improves performance; this Turns off Flasks sql alchemy tracker as now SQLAlchemy module has its own tracker.
 
 app.secret_key='jose'
