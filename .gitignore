@@ -4,3 +4,4 @@ __pycache__/
 data.db
 create_tables.py
 .idea/
+__init__.py
