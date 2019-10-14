@@ -24,10 +24,7 @@ app.secret_key='jose'
 
 api=Api(app) # to use flask_restful; api object will work with app object from Flask class
 
-@app.before_first_request
 
-def create_tables():
-    db.create_all()
 
 
 """
